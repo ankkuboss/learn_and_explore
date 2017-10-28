@@ -1,0 +1,200 @@
+<!-- page content -->
+        <div class="right_col" role="main" data-ng-controller="userCtrl" ng-init="get_user_details();get_user_cashback_history();">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>User details</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                   
+                    <span class="input-group-btn">
+                      <button data-toggle="modal" data-target="#add_cashback_modal" class="btn btn-primary" type="button">Add Cashback</button>
+                    </span> 
+                     <span class="input-group-btn">
+                      <button class="btn btn-primary" type="button">Manage Cashback</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_content">
+
+                  <div class="row">
+                    <label class="col-md-3">User id</label>
+                    <div class="col-md-9">{{user_details.user_id}}</div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Name</label>
+                    <div class="col-md-9">{{user_details.first_name}} {{user_details.last_name}}</div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Email</label>
+                    <div class="col-md-9">{{user_details.email}} </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Phone</label>
+                    <div class="col-md-9">{{user_details.phone_no}} </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">cashback</label>
+                    <div class="col-md-9">{{user_details.cashback}}</div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Bank Name</label>
+                    <div class="col-md-9">{{user_details.bank_name}} </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Account Holder Name</label>
+                    <div class="col-md-9">{{user_details.account_holder_name}}</div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Account Number</label>
+                    <div class="col-md-9">{{user_details.account_number}} </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Branch Name</label>
+                    <div class="col-md-9">{{user_details.branch_name}} </div>
+                  </div>
+                  <div class="row">
+                    <label class="col-md-3">Bank IFSC code</label>
+                    <div class="col-md-9">{{user_details.ifsc_code}} </div>
+                  </div>
+                 
+                 <h3>Cashback History</h3>
+                  <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                            <th>
+                              <input type="checkbox" id="check-all" class="flat">
+                            </th>
+                            <th class="column-title">S.no </th>
+                            <th class="column-title">Cashback Amount </th>
+                            <th class="column-title">Order Amount </th>
+                            <th class="column-title">Coupon Code </th>
+                            <th class="column-title">Retailer name </th>
+                            <th class="column-title">Purchase Date </th>
+                            <th class="column-title">Status </th>
+                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+
+                           <tr ng-class-odd="'odd'" ng-class-even="'even'" class="pointer" 
+                           ng-repeat="cashback in user_cashback_history">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">{{$index+1}}</td>
+                            <td class=" ">{{cashback.amount}}</td>
+                            <td class=" ">{{cashback.order_amount}}</td>
+                            <td class=" ">{{cashback.coupon_code}}</td>
+                            <td class=" ">{{cashback.retailer_name}}</td>
+                            <td class=" ">{{cashback.purchase_date}}</td>
+                            <td class=""> 
+                            <i ng-if="cashback.status== 1" class="fa fa-toggle-on" aria-hidden="true"></i>
+                            <i ng-if="cashback.status== 0" class="fa fa-toggle-off" aria-hidden="true"></i>
+                            </td>
+                            <td class=" last"><a ui-sref="user_details({user_id:user.user_id})">View</a>
+                            </td>
+                          </tr>                         
+                        </tbody>
+                      </table>
+                    </div>
+
+
+                     <!-- Modal -->
+  <div class="modal fade" id="add_cashback_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Cashback</h4>
+        </div>
+        <div class="modal-body">
+              <form id="add_cashback_form" data-ng-submit="add_cashback();" data-parsley-validate class="form-horizontal form-label-left">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cachback">Cashback <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="number" data-ng-model="cashbackObj.cashback" id="cachback" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="transaction_id">Transaction id <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" data-ng-model="cashbackObj.transaction_id" id="transaction_id" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="retailer_name">Retailer Name <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="retailer_name" data-ng-model="cashbackObj.retailer_name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="order_amt">Order Amount <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="number" id="order_amt" data-ng-model="cashbackObj.order_amt" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="voucher_code">voucher_details <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" data-ng-model="cashbackObj.voucher_code" id="voucher_code" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                 <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="date">Date <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="date" id="date" data-ng-model="cashbackObj.date" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                 <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+              </form>
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+ 
+              
+            
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->

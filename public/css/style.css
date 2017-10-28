@@ -1,0 +1,101 @@
+
+.modal-body{
+	height: 50%;
+}
+
+.fa{
+	font-size: 18px;
+}
+
+.img-responsive {
+    width: 60% !important;
+    height: 18% !important;
+}
+
+.grab-deal-btn{
+	text-align: center;
+}
+
+.ac {
+	text-align: center;
+}
+
+.m-t-10{
+	margin-top: 10px;
+}
+.m-b-15{
+	margin-bottom: 15px;
+}
+
+.f-12{
+	font-size: 12px;
+}
+.f-11{
+	font-size: 11px;
+}
+
+.f-13{
+	font-size: 13px;
+}
+
+.expire-text{
+	color: darkgray;
+    text-align: center;
+}
+
+.store-br{
+	    border:1px solid #ddd;
+	        border-radius: 12px;
+    margin: 10px;
+}
+
+.detail-ele{
+	border: 2px solid #ccc;
+    border-radius: 7px;
+        margin-bottom: 5px;
+    margin-right: 5px;
+    text-align: left;
+}
+
+ .collapse-text-toggle{
+           font-weight: bold;
+         }
+
+         .alert-danger{
+         	z-index: 9999;
+         }
+
+.sign-in-h{
+
+height: 235px;  
+}
+.sign-up-h{
+
+    height: 374px;  
+}
+
+
+
+.adjust-icon{
+	    margin-top: 8px;
+    margin-right: 17px;
+}
+
+.btn-coupon{
+    color: #f8f3f3 !important;
+    background-color: #e0961a !important;
+    border-color: #e0961a !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+
+}
+
+.btn-m {
+        margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.banner-image{
+    width: 100% !important;
+    height: 400px !important;
+}

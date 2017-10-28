@@ -1,0 +1,50 @@
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">{{language.SITE_TITLE}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input name="states" typeahead-on-select="goToStore($item, $model, $label, $event)" id="states" type="text" placeholder="enter a store" ng-model="selected" typeahead="store as store.name for store in stores | filter:$viewValue | limitTo:8" ng-model-options='{ debounce: 1000 }' class="form-control" data-ng-change="searchStore(selected)">
+          <!-- <input type="text" class="form-control" placeholder="Search"> -->
+        </div>
+        <button type="submit" class="btn btn-default">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+         <li data-ng-if="is_logged_in=='true'" class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    {{user_data.first_name}} {{user_data.last_name}}
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a ui-sref="my_profile"> Profile</a></li>
+                    <li><a ui-sref="earnings"> Earnings</a></li>
+                    
+                    <li><a href="javascript:void(0);" data-ng-click="logout();"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+        <li data-ng-if="is_logged_in== false"><a  data-toggle="modal" data-target="#signinModal" >Sign In</a></li>
+        <li data-ng-if="is_logged_in==false"><a data-toggle="modal" data-target="#signupModal">Sign Up</a></li>
+       <!--  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    </div><!-- /.navbar-collapse -->

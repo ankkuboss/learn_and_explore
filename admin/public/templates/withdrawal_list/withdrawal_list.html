@@ -1,0 +1,93 @@
+<!-- page content -->
+        <div class="right_col" role="main" data-ng-controller="withdrawalCtrl" ng-init="get_withdrawal_list()">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Withdrawal List</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Withdrawal List</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                            <th>
+                              <input type="checkbox" id="check-all" class="flat">
+                            </th>
+                            <th class="column-title">S.no </th>
+                            <th class="column-title">Full Name </th>
+                            <th class="column-title">email </th>
+                            <th class="column-title">Amount </th>
+                            <th class="column-title">Status </th>
+                            <th class="column-title no-link last"><span class="nobr">Action</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+
+                           <tr ng-class-odd="'odd'" ng-class-even="'even'" class="pointer" 
+                           ng-repeat="item in withdrawal_list">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">{{$index+1}}</td>
+                            <td class=" ">{{item.first_name}} {{item.last_name}}</td>
+                            <td class=" ">{{item.email}}</td>
+                            <td class=" ">{{item.amount}}</td>
+                            <td class=" ">
+                               <i ng-if="item.status== 1" class="fa fa-toggle-on" aria-hidden="true"></i>
+                            <i ng-if="item.status== 0" class="fa fa-toggle-off" aria-hidden="true"></i>
+                              
+                            </td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>                         
+                        </tbody>
+                      </table>
+                    </div>
+              
+            
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->

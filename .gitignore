@@ -1,0 +1,12 @@
+.DS_Store
+vendor
+.idea
+
+upload/*
+
+.git/*
+
+public/bower_components/*
+admin/public/bower_components/*
+
+explore_config/*

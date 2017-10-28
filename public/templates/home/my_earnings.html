@@ -1,0 +1,106 @@
+<div class="container" ng-init="get_my_earnings()" >
+  <h1 class="page-header">Your Cashback Earnings</h1>
+ 
+     <div class="x_content">
+
+        <table class="table">
+         
+          <tbody>
+            <tr>
+              <td>Total Earning</td>
+              <td>{{my_earnings.total}}</td>
+            </tr>
+            <tr>
+              <td>Cashback waiting for approval</td>
+              <td>{{my_earnings.pending}}</td>
+            </tr>
+           <!--  <tr>
+              <td>Paid cashback</td>
+              <td>{{my_earnings.paid}}</td>
+            </tr> -->
+             <tr>
+              <td> Cashback Available for Payment</td>
+              <td>{{my_earnings.approved}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        </div>
+
+         <h1 class="page-header">Your Withdrawal List</h1>
+    <div class="x_content">
+       <span class="input-group-btn">
+                      <button data-toggle="modal" data-target="#withdraw_request_modal" class="btn btn-primary" type="button">Make A Withdraw Request</button>
+                    </span> 
+        <table class="table">
+         <thead>
+           <th>Name</th>
+           <th>Email</th>
+           <th>Amount</th>
+           <th>Status</th>
+         </thead>
+          <tbody>
+            <tr data-ng-repeat="item in my_withdrawal_list">
+              <td>{{item.name}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.cashback}}</td>
+              <td>{{item.status==0?"Pending":"Success"}}</td>
+            </tr>
+           
+          </tbody>
+        </table>
+
+                            <!-- Modal -->
+  <div class="modal fade" id="withdraw_request_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Make a withdraw request</h4>
+        </div>
+        <div class="modal-body">
+              <form id="make_withdrawal_form" data-ng-submit="make_withdrawal();" data-parsley-validate class="form-horizontal form-label-left">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cachback">Amount <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="number" data-ng-model="withdrawalObj.amount" id="cachback" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="retailer_name" data-ng-model="withdrawalObj.name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="email" id="order_amt" data-ng-model="withdrawalObj.email" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                 <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+              </form>
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+
+        </div>
+     
+    
+   
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="jumbotron" ng-init="store_details();">
+  <div class="container text-center">
+    <h1></h1>      
+      <img src="{{store_details[0].image}}" class="img-responsive" style="width:200px !important" alt="Image">
+    <p>{{store_details[0].coupon_title}}</p>
+  </div>
+</div>
+  
+<div class="container-fluid bg-3 text-center">
+  <div class="row">
+    <div class="col-sm-7 detail-ele" ng-repeat="dtl in store_details">
+      <h4><strong>{{dtl.coupon_title}} + {{dtl.cashback_text}}</strong></h4>
+      <p dd-text-collapse dd-text-collapse-max-length="150" dd-text-collapse-text="{{ dtl.coupon_description }}"></p>
+       
+        <div class="grab-deal-btn btn-m">
+          <a data-ng-show="dtl.coupon_type == 2" class="btn btn-coupon f-11" data-ng-click="commonService.redirect_to_retailer(dtl)" >GRAB DEAL</a>
+          <a data-ng-show="dtl.coupon_type == 1" class="btn btn-coupon f-11" data-ng-click="commonService.redirect_to_retailer(dtl)">GET COUPON</a>
+          </div>
+      <p class="expire-text"><i class="fa fa-clock-o f-13"></i> Expires in <span calc-time="{{dtl.expiry_time}}" today="{{dtl.today}}"></span></p>
+    </div>
+    
+  </div>
+</div><br>
+<br><br>

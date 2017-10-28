@@ -1,0 +1,174 @@
+<!-- page content -->
+        <div class="right_col" role="main"  ng-init="bannerList()">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Banner List</h3>
+              </div>
+
+              <div class="title_right">
+              	 
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+
+
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Banner List</h2>
+                    
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li>
+                      	<span >
+                      <button data-toggle="modal" data-target="#add_banner_modal" class="btn btn-primary" type="button">Add banner</button>
+                    </span>
+                      </li>
+                      
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+
+                  <div class="x_content">
+
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                            <th>
+                              <input type="checkbox" id="check-all" class="flat">
+                            </th>
+                            <th class="column-title">S.no </th>
+                            <th class="column-title">Name </th>
+                            <th class="column-title">Image </th>
+                            <th class="column-title">link </th>
+                            <th class="column-title">Status </th>
+                            <th class="bulk-actions" colspan="7">
+                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+
+                           <tr ng-class-odd="'odd'" ng-class-even="'even'" class="pointer" 
+                           ng-repeat="item in banner_list">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">{{$index+1}}</td>
+                            <td class=" " ng_bind="item.name"> </td>
+                            <td class=" "><img src="item.image"/></td>
+                            <td class=" " data-ng-bind="item.link"></td>
+                            <td class=" ">
+                               <i ng-if="item.status== 1" class="fa fa-toggle-on" aria-hidden="true"></i>
+                            <i ng-if="item.status== 0" class="fa fa-toggle-off" aria-hidden="true"></i>
+                              
+                            </td>
+                            
+                          </tr>                         
+                        </tbody>
+                      </table>
+                    </div>
+
+                            <!-- Modal -->
+  <div class="modal fade" id="add_banner_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Banner</h4>
+        </div>
+        <div class="modal-body">
+              <form id="add_banner_form" data-ng-submit="add_banner();" data-parsley-validate class="form-horizontal form-label-left">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" data-ng-model="bannerObj.name" id="name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="banner_file">Upload <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <!-- <input type="file" file-model="myFile"  class="form-control col-md-7 col-xs-12"/> -->
+                        <input type = "file" file-model = "myFile"/>
+                        <button class="form-control" ng-click="uploadBannerFile()">upload</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="link">Link <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="link" data-ng-model="bannerObj.link" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">Status <span class="required">*</span>
+                        </label>
+                    
+                        
+
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                          
+                        <input type="radio" ng-model="bannerObj.status" class="flat" name="gender" id="statusE" value="1" checked="" required /> <label for="statusE">Enable</label> 
+                        <input type="radio" ng-model="bannerObj.status" class="flat" name="gender" id="statusD" value="0" /> <label for="statusD">Disable</label>
+                        </div>
+
+
+                    
+                </div>
+                 <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+              </form>
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+            <!--model end-->
+                  </div>
+
+<div class="row">
+  
+  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Action</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select ng-model="banner_action" ng-change="updateBanner()" class="form-control">
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                            <option value="2">delete</option>
+                            
+                          </select>
+                        </div>
+                      </div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->

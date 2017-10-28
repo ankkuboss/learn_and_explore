@@ -1,0 +1,49 @@
+<!--crouserl-->
+ <carousel class="m-b-15" interval="myInterval" ng-init="get_banner_list()">
+        <slide ng-repeat="slide in banner_list" active="slide.active">
+        <div>
+            
+          <img ng-click="commonService.redirect_from_banner(slide.link)" class="banner-image" ng-src="{{banner_path}}{{slide.image}}">
+          
+        </div>
+          <div class="carousel-caption">
+            <h4> {{slide.coupon_title}}</h4>
+          </div>
+        </slide>
+      </carousel>
+            
+      <!--/crouserl-->   
+<div class="container-fluid bg-3 text-center" data-ng-init="get_store_list();get_random_store_offers()">    
+  <h3>Stores</h3><br>
+  <div class="row">
+    <div class="col-sm-2 store-br" data-ng-repeat="store in store_list">
+      <!-- <p>{{store.name}}</p> -->
+      <a href="store_details/{{store.store_id}}"><img src="{{store.image}}" class="img-responsive" style="width:100%" alt="Image"></a>
+      
+    </div>
+    
+  </div>
+</div>
+
+
+ <h3>Offers</h3><br>
+<div class="row m-b-10" ng-init="get_store_offers()">
+    <div class="col-sm-3" data-ng-repeat="store_offer in store_offers">
+      <div class="panel panel-primary">
+        <div class="panel-heading ac">{{store_offer.store_name}}</div>
+        <div class="panel-body">
+        <img src="{{store_offer.image}}" class="img-responsive" style="width:100%" alt="Image">
+        <div class="grab-deal-btn btn-m">
+        	<a data-ng-show="store_offer.coupon_type == 2" class="btn btn-coupon f-11" data-ng-click="commonService.redirect_to_retailer(store_offer)">GRAB DEAL</a>
+        	<a data-ng-show="store_offer.coupon_type == 1" data-ng-click="commonService.redirect_to_retailer(store_offer)" class="btn btn-coupon f-11" >GET COUPON</a><!--href="{{store_offer.link}}" target="_blank"-->
+        	</div>
+        	<div class="expire-text">Expires in <span calc-time="{{store_offer.expiry_time}}" today="{{store_offer.today}}"></span></div>
+        </div>
+        <div class="panel-footer f-12" title="{{store_offer.coupon_title}}">
+        {{store_offer.coupon_title | limitTo:35}}</div>
+      </div>
+    </div>
+   
+   
+    
+  </div>
