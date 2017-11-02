@@ -99,3 +99,10 @@ height: 235px;
     width: 100% !important;
     height: 400px !important;
 }
+
+.logo-image{
+    height: 50px !important;
+    width: 174px !important;
+    position: relative;
+    top: -5px;
+}
