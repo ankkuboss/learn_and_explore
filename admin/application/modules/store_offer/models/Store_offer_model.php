@@ -15,6 +15,7 @@ class Store_offer_model extends MY_Model
 		->from(STORE_OFFER." SO")
 		->join(OFFER_TYPE." OT","SO.offer_type_id=OT.offer_type_id ","INNER")
 		->join(STORE." S","S.store_id=SO.store_id ","INNER")
+		->limit(50)
 		->get()
 		->result_array();
 		//$result= $this->get_table_data("*",USER);

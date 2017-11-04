@@ -3,9 +3,18 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a ui-sref="users"><i class="fa fa-user"></i> Users </a></li>
+
+                  <li ng-repeat="menu in menu_items"  
+                  ng-click="menu_states.activeItem=menu.id"
+                  ng-class="{'active': menu.id == menu_states.activeItem}"
+                  >
+                    <a ui-sref="{{menu.state}}"> <i class="fa fa-user"></i>{{menu.title}}</a>
+                  }
+                  }
+                  </li>
+                 <!--  <li><a ui-sref="users"><i class="fa fa-user"></i> Users </a></li>
                   <li><a ui-sref="storeOffers"><i class="fa fa-user"></i>Store Offers </a></li>
-                  <li><a ui-sref="banners"><i class="fa fa-user"></i>Banners </a></li>
+                  <li><a ui-sref="banners"><i class="fa fa-user"></i>Banners </a></li> -->
                   <li>
                     <a ui-sref="withdrawal_list"><i class="fa fa-edit"></i> Withdrawal List <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">

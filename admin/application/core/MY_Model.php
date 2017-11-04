@@ -75,17 +75,16 @@ class MY_Model extends CI_MODEL
     {
     	$active_admin = $this->get_single_row("*",ACTIVE_ADMIN_LOGIN,array("admin_id"=>$user_id));
 
+        if(!empty($active_admin))
+    	{
+    		$this->db->delete(ACTIVE_ADMIN_LOGIN,array("admin_id" => $user_id));
+    	}
 
     	$active_admin = array();
 		$active_admin['admin_id'] = $user_id;
 		$active_admin['session_key'] = session_id();//random_string('alnum',20);
 		$active_admin['created_at'] = format_date();
 		$active_admin['updated_at'] = format_date();
-
-        if(empty($active_admin))
-    	{
-    		$this->db->delete(ACTIVE_ADMIN_LOGIN,array("admin_id" => $user_id));
-    	}
 
     	$this->db->insert(ACTIVE_ADMIN_LOGIN,$active_admin);
 

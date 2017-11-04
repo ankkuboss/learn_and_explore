@@ -24,7 +24,6 @@ class  MYREST_Controller  extends  MY_Controller  {
        
     }
     
-
     function basic_auth()
     {
     	$session_key = session_id();//$this->input->get_request_header(AUTH_KEY);

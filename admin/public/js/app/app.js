@@ -485,5 +485,21 @@ app.run(['$rootScope', '$location', '$state','$timeout','commonService', functio
     $rootScope.alerts.splice(index, 1);
   };
 
+   $scope.menu_states = {};
+    $scope.menu_states.activeItem = 'users_li';
+    $scope.menu_items = [{
+        id: 'users_li',
+        title: 'Users',
+        state:"users"
+    }, {
+        id: 'store_offers_li',
+        title: 'Store Offers',
+        state:'storeOffers'
+    }, {
+        id: 'banners_li',
+        title: 'Banners',
+        state:'banners'
+    }];
+
 
 }]);
