@@ -75,7 +75,7 @@ class MY_Model extends CI_MODEL
     {
     	$active_admin = $this->get_single_row("*",ACTIVE_ADMIN_LOGIN,array("admin_id"=>$user_id));
 
-        if(!empty($active_admin))
+    	if(!empty($active_admin))
     	{
     		$this->db->delete(ACTIVE_ADMIN_LOGIN,array("admin_id" => $user_id));
     	}

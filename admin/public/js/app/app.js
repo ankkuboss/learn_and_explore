@@ -421,6 +421,8 @@ app.run(['$rootScope', '$location', '$state','$timeout','commonService', functio
 	$rootScope.SignupFormObj = {};
 	$rootScope.metaDesc  = '';
 
+	$rootScope.language = language;
+
 	$rootScope.get_master_league = localStorage.getItem('get_master_league_'+LANG_ABBR);
 	$rootScope.my_leagues = localStorage.getItem('my_leagues_'+LANG_ABBR);
 	
@@ -485,20 +487,31 @@ app.run(['$rootScope', '$location', '$state','$timeout','commonService', functio
     $rootScope.alerts.splice(index, 1);
   };
 
-   $scope.menu_states = {};
-    $scope.menu_states.activeItem = 'users_li';
-    $scope.menu_items = [{
+   $rootScope.menu_states = {};
+    $rootScope.menu_states.activeItem = 'users_li';
+    $rootScope.menu_items = [{
         id: 'users_li',
         title: 'Users',
-        state:"users"
-    }, {
+        state:"users",
+        icon_class:"fa-user"
+    }, 
+    {
         id: 'store_offers_li',
         title: 'Store Offers',
-        state:'storeOffers'
-    }, {
+        state:'storeOffers',
+        icon_class:"fa-shopping-cart"
+    }, 
+    {
         id: 'banners_li',
         title: 'Banners',
-        state:'banners'
+        state:'banners',
+        icon_class:'fa-picture-o'
+    },
+    {
+        id: 'withdrawal_li',
+        title: 'Withdrawal List',
+        state:'withdrawal_list',
+        icon_class:"fa-money"
     }];
 
 
