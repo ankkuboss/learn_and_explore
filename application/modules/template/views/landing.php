@@ -96,7 +96,10 @@ img{
   <div   ng-include="'<?php echo base_url();?>public/templates/home/signin.html'"></div>
   <div   ng-include="'<?php echo base_url();?>public/templates/home/proceed_to_retailer.html'"></div>
 
-<a href="http://tracking.vcommission.com/aff_c?offer_id=412&aff_id=63524&file_id=138636" target="_blank"><img src="http://media.vcommission.com/brand/files/vcm/412/Flipkart_CPS_Upto-40_Off_728X90.jpg" width="728" height="90" border="0" /></a><img src="http://tracking.vcommission.com/aff_i?offer_id=412&file_id=138636&aff_id=63524" width="1" height="1" />
+<a href="http://tracking.vcommission.com/aff_c?offer_id=412&aff_id=63524&file_id=138636" target="_blank">
+  <img class="footer-adv" src="http://media.vcommission.com/brand/files/vcm/412/Flipkart_CPS_Upto-40_Off_728X90.jpg" width="728" height="90" border="0" />
+</a>
+<img src="http://tracking.vcommission.com/aff_i?offer_id=412&file_id=138636&aff_id=63524" width="1" height="1" />
 <footer class="container-fluid text-center">
   <p><?php echo SITE_TITLE;?> Copyright 2017</p>  
 </footer>

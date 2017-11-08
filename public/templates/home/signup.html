@@ -3,10 +3,10 @@
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content sign-up-h">
+      <div class="modal-content sign-up-h auth-model">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">{{language.SIGNUP_MODEL_TITLE}}</h4>
+          <img class="logo-image" ng-src="{{language.SITE_LOGO}}" >
         </div>
         <div class="modal-body">
           <div class="x_panel">
@@ -15,26 +15,26 @@
 
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <input name="first_name" data-ng-model="userObj.first_name" type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="First Name" required="">
-                        <span class="fa fa-user form-control-feedback left adjust-icon" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback left m-r-15 m-t-8" aria-hidden="true"></span>
                       </div>
 
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <input name="last_name" data-ng-model="userObj.last_name" type="text" class="form-control" id="inputSuccess3" placeholder="Last Name" required>
-                        <span class="fa fa-user form-control-feedback right adjust-icon" aria-hidden="true"></span>
+                        <span class="fa fa-user form-control-feedback right m-r-15 m-t-8" aria-hidden="true"></span>
                       </div>
 
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <input name="email" data-ng-model="userObj.email" type="email" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Email" required>
-                        <span class="fa fa-envelope form-control-feedback left adjust-icon" aria-hidden="true"></span>
+                        <span class="fa fa-envelope form-control-feedback left m-r-15 m-t-8" aria-hidden="true"></span>
                       </div>
                        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <input name="password" data-ng-model="userObj.password" type="password" class="form-control has-feedback-left" id="inputSuccess4" placeholder="********" required>
-                        <span class="fa fa-lock form-control-feedback left adjust-icon" aria-hidden="true"></span>
+                        <span class="fa fa-lock form-control-feedback left m-r-15 m-t-8" aria-hidden="true"></span>
                       </div>
                       <div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                           <input name="dob" data-ng-model="userObj.dob" init-date class="date-picker form-control col-md-7 col-xs-12" required="required" type="text" placeholder="Date of birth">
-                          <span class="fa fa-calendar form-control-feedback left adjust-icon" aria-hidden="true"></span>
+                          <span class="fa fa-calendar form-control-feedback left m-r-15 m-t-8" aria-hidden="true"></span>
                         </div>
                       </div>
                      

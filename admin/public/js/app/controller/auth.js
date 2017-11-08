@@ -55,53 +55,6 @@ angular.module("learn_and_explore").controller('LoginCtrl', ['$scope', 'commonSe
 
 	};
 
-	
-	//Facebook Login
-	$scope.FbLogin = function(){
-		facebookService.FbLoginStatusCheck().then(function(response){
-			$scope.FbUserData(response);
-		}, function(error){
-
-		});
-	}
-
-	//Facebook Login aditional function
-	$scope.FbUserData = function(user_data){
-		var post_data = {
-				"first_name"  : user_data.first_name,
-				"last_name"	  : user_data.last_name,
-				"email"       : user_data.email, 
-				"password"    : '',
-				"device_id"   : '0',
-				"device_type" : '1',
-				"remember_me" : $scope.LoginFormObj.checkbox,
-				"social_type" : 'facebook',
-				"social_id"   : user_data.id,
-				"page"   	  : 'login',
-				"image"		  : user_data.picture.large,
-			};
-		$scope.doLogin(post_data);
-	};
-
-	//Twitter Login
-	$scope.TWLogin= function(data)
-	{
-		if(data.status == true)
-		{
-			var post_data = {
-					"first_name"	: data.name,
-					"username"		: data.screen_name,
-					"device_id"		: '0',
-					"device_type"	: '1',
-					"social_type"	: 'twitter',
-					"social_id"		: data.id,
-					"image"			: data.profile_pic,
-				};
-			$scope.doLogin(post_data);
-		} else {
-			$rootScope.alert_error = data.message;
-		}
-	};
 
 }]);
 
