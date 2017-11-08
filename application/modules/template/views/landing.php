@@ -24,7 +24,7 @@
     <link href="<?php echo base_url();?>public/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url();?>public/css/style.css" rel="stylesheet">
 
-  
+  <link rel="shortcut icon" href="{{language.SITE_FAVICON}}" />
 <link id="load_plugins_before"/>
 <style>
 
