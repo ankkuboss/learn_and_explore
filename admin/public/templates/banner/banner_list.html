@@ -109,6 +109,7 @@
                         <!-- <input type="file" file-model="myFile"  class="form-control col-md-7 col-xs-12"/> -->
                         <input type = "file" file-model = "myFile"/>
                         <button class="form-control" ng-click="uploadBannerFile()">upload</button>
+                        <img width="100" height="100" ng-if="bannerObj.image" ng-src="{{BASE_URL}}upload/banners/{{bannerObj.image}}">
                     </div>
                 </div>
                 <div class="form-group">

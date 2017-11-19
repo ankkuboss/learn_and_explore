@@ -416,6 +416,8 @@ app.run(['$rootScope', '$location', '$state','$timeout','commonService', functio
 	$rootScope.alert_error='';
 	$rootScope.lang = SERVER_GLOBAL;
 	console.log("lang:",$rootScope.lang);
+	$rootScope.BASE_URL = BASE_URL;
+
 	$rootScope.salary_cap_unit = DEFAULT_SALARY_UNIT;
 	$rootScope.is_logged_in = sessionStorage.getItem('is_logged_in');
 	$rootScope.SignupFormObj = {};

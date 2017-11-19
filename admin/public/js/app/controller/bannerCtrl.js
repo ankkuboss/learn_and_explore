@@ -16,6 +16,13 @@ function bannerCtrl($scope, commonService, $state, $rootScope,fileUpload) {
 		vm.add_banner       = add_banner;
 
 
+		
+		angular.element("#add_banner_modal").on('hidden.bs.modal', function () {
+    // do something…
+    console.log('modal close');
+    vm.bannerObj        = {};
+})
+
 	 function bannerList()
 	 {
 	 	vm.banner = {};
@@ -45,10 +52,12 @@ function bannerCtrl($scope, commonService, $state, $rootScope,fileUpload) {
 
          	vm.bannerObj.image= response.data.image_url;
          	console.log('file_response:',response);
+         	vm.myFile = "";
          	
                })
             
                .error(function(){
+               	vm.bannerObj.image="";
                });
   };
 
