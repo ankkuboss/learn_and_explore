@@ -48,7 +48,6 @@ class MY_Model extends CI_MODEL
 			$days=  floor($datediff / (60 * 60 * 24));
 			if($days > 15)
 			{
-
 				if($from_login)
 				{
 					$active_admin = array();
