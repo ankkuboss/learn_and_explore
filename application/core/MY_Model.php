@@ -80,7 +80,7 @@ class MY_Model extends CI_MODEL
     	}
     	$active_admin = array();
 		$active_admin['user_id'] = $user_id;
-		$active_admin['session_key'] = session_id();//random_string('alnum',20);
+		$active_admin['session_key'] = random_string('alnum',20);//session_id();
 		$active_admin['created_at'] = format_date();
 		$active_admin['updated_at'] = format_date();
     	$this->db->insert(ACTIVE_LOGIN,$active_admin);

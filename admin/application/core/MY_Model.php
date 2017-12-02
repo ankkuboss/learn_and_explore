@@ -52,7 +52,7 @@ class MY_Model extends CI_MODEL
 				if($from_login)
 				{
 					$active_admin = array();
-					$active_admin['session_key'] = session_id();//random_string('alnum',20);
+					$active_admin['session_key'] = random_string('alnum',20);//session_id();
 	    			$active_admin['created_at'] = format_date();
 	    			$active_admin['updated_at'] = format_date();
 	    			$this->db->where('admin_id',$user_id);

@@ -55,7 +55,7 @@ class  Auth extends  MYREST_Controller  {
             
         }
             unset($user_data["password"]);
-        //$user_data[AUTH_KEY] = $key;
+        $user_data[AUTH_KEY] = $key;
         $this->api_response["response_code"] = 200;
         $this->api_response["data"] = $user_data;
         $this->api_response["message"] = "login successfully.";

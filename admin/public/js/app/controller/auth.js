@@ -31,6 +31,7 @@ angular.module("learn_and_explore").controller('LoginCtrl', ['$scope', 'commonSe
 			$rootScope.is_logged_in = true;
 			$rootScope.userName = response.data;			
 			localStorage.clear();
+			localStorage.setItem(AUTH_KEY,response.data[AUTH_KEY]);
 			var next_url = 'users';
 			$state.go(next_url);
 			window.location = next_url;
