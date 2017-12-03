@@ -30,6 +30,7 @@ angular.module("learn_and_explore").controller('LoginCtrl', ['$scope', 'commonSe
 			sessionStorage.setItem(AUTH_KEY,response.data[AUTH_KEY]);
 
 			sessionStorage.setItem('is_logged_in',true);
+			localStorage.setItem(AUTH_KEY,response.data[AUTH_KEY]);
 			//$rootScope.userLogin = true;
 			//$rootScope.is_logged_in = true;
 			vm.user_data = response.data;

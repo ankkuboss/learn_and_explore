@@ -54,7 +54,7 @@ class MY_Model extends CI_MODEL
 				if($from_login)
 				{
 					$active_user = array();
-					$active_user['session_key'] = session_id();//random_string('alnum',20);
+					$active_user['session_key'] = random_string('alnum',20);
 					$active_user['updated_at'] = format_date();
 					$this->db->where('user_id', $user_id);
 					$this->db->update(ACTIVE_LOGIN, $active_user);

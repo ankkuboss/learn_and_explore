@@ -15,7 +15,7 @@
         
                 
 </script> 
-<script type="text/javascript" src="explore_config/common.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>explore_config/common.js"></script>
 <base href="<?php echo base_url();?>"> 
 <title>{{language.SITE_TITLE}}</title> 
 <!-- <link href="<?php echo base_url();?>public/css/bootstrap.min.css" rel="stylesheet"> -->
