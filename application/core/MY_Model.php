@@ -32,7 +32,7 @@ class MY_Model extends CI_MODEL
     	{
     		$active_user = array();
     		$active_user['user_id'] = $user_id;
-    		$active_user['session_key'] = session_id();//random_string('alnum',20);
+    		$active_user['session_key'] = random_string('alnum',20);
     		$active_user['created_at'] = format_date();
     		$active_user['updated_at'] = format_date();
 
