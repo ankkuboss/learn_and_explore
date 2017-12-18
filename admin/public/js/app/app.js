@@ -1,7 +1,9 @@
 var app = angular.module('learn_and_explore', [
+	'ngAnimate',
+	'ui.bootstrap',
 		'ui.router',
 		'oc.lazyLoad',
-		'ngScrollbars'
+		'ngScrollbars',
 	]);
 
 app.config(['$stateProvider', '$locationProvider', '$httpProvider', '$urlRouterProvider', '$ocLazyLoadProvider', 'ScrollBarsProvider', function($stateProvider, $locationProvider, $httpProvider, $urlRouterProvider, $ocLazyLoadProvider, $ScrollBarsProvider) {

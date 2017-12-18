@@ -11,7 +11,7 @@
                   <div class="input-group">
                    
                     <span class="input-group-btn">
-                      <button data-toggle="modal" data-target="#add_cashback_modal" class="btn btn-primary" type="button">Add Cashback</button>
+                      <button data-ng-click="addCashbackInit()" class="btn btn-primary" type="button">Add Cashback</button>
                     </span> 
                      <span class="input-group-btn">
                       <button class="btn btn-primary" type="button">Manage Cashback</button>
@@ -117,19 +117,16 @@
                       </table>
                     </div>
 
-
-                     <!-- Modal -->
-  <div class="modal fade" id="add_cashback_modal" role="dialog">
-    <div class="modal-dialog">
+<script type="text/ng-template" id="addCashbackModal.html">
     
       <!-- Modal content-->
-      <div class="modal-content">
+      
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Add Cashback</h4>
         </div>
         <div class="modal-body">
-              <form id="add_cashback_form" data-ng-submit="add_cashback();" data-parsley-validate class="form-horizontal form-label-left">
+              <form id="add_cashback_form" data-parsley-validate class="form-horizontal form-label-left">
                 <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cachback">Cashback <span class="required">*</span>
                         </label>
@@ -177,18 +174,20 @@
                 </div>
                  <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-success">Submit</button>
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" ng-click="ok();" class="btn btn-success">Submit</button>
+                          <button type="button" ng-click="cancel();" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                       </div>
               </form>
         </div>
        
-      </div>
       
-    </div>
-  </div>
+      
+    
  
+</script>
+                     <!-- Modal -->
+  
               
             
                   </div>

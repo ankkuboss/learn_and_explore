@@ -150,10 +150,16 @@
   <script src="<?php echo base_url();?>public/js/lib/jquery.min.js"></script>
     <script src="<?php echo base_url();?>public/js/lib/bootstrap.min.js"></script>
      <!-- <script src="<?php echo base_url();?>public/js/htmldev/main.js"></script> -->
-    <script src="<?php echo base_url();?>public/js/lib/angular.min.js"></script>
+    <!-- <script src="<?php echo base_url();?>public/js/lib/angular.min.js"></script> -->
     
 <!-- <script src="https://code.angularjs.org/1.4.12/angular.js"></script>
- -->    <script src="<?php echo base_url();?>public/js/lib/angular-ui-router.min.js"></script>
+-->
+
+<script src="<?php echo base_url();?>public/js/lib/angular.js"></script>
+    <script src="<?php echo base_url();?>public/js/lib/angular-animate.js"></script>
+    <script src="<?php echo base_url();?>public/js/lib/ui-bootstrap-tpls-1.0.0.js"></script>
+    <!-- <script src="<?php echo base_url();?>public/js/lib/ui-bootstrap-tpls-1.0.0.min.js"></script> -->
+    <script src="<?php echo base_url();?>public/js/lib/angular-ui-router.min.js"></script>
     
      <script src="<?php echo base_url();?>public/js/lib/ocLazyLoad.min.js"></script>
     <script src="<?php echo base_url();?>public/js/lib/bootstrap-datepicker.js"></script>
