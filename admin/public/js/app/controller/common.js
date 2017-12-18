@@ -1,7 +1,10 @@
 'use strict';
 var app = angular.module('learn_and_explore');
 
-app.controller('CommonCtrl', ['$scope', '$location', '$rootScope', '$state','showServerError', 'commonService','$templateCache', '$cacheFactory',function($scope, $location, $rootScope, $state,showServerError,commonService, $templateCache, $cacheFactory){
+app.controller('CommonCtrl', CommonCtrl);
+
+CommonCtrl.$inject = ['$scope', '$location', '$rootScope', '$state','showServerError', 'commonService','$templateCache', '$cacheFactory'];
+function CommonCtrl($scope, $location, $rootScope, $state,showServerError,commonService, $templateCache, $cacheFactory){
 	if(sessionStorage.getItem('is_logged_in')===null || sessionStorage.getItem('is_logged_in')===undefined)
 	{
 		$rootScope.is_logged_in = false;
@@ -23,4 +26,4 @@ app.controller('CommonCtrl', ['$scope', '$location', '$rootScope', '$state','sho
 
 	}
 
-}]);
+}

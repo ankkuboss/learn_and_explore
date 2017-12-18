@@ -64,7 +64,11 @@ function LoginCtrl($scope, commonService, $state, $rootScope) {
 }
 
 
-angular.module("learn_and_explore").controller('ForgotPasswordCtrl', ['$scope','$state', 'commonService', '$rootScope','$timeout', function ($scope, $state, commonService, $rootScope,$timeout) {
+angular.module("learn_and_explore").controller('ForgotPasswordCtrl',ForgotPasswordCtrl);
+
+ForgotPasswordCtrl.$inject =  ['$scope','$state', 'commonService', '$rootScope','$timeout'];
+
+function ForgotPasswordCtrl($scope, $state, commonService, $rootScope,$timeout) {
 	$scope.ForgotFormObj       = {};
 	$scope.ForgotFormObj.email = '';	
 	$rootScope.forgot_email = '';
@@ -89,9 +93,13 @@ angular.module("learn_and_explore").controller('ForgotPasswordCtrl', ['$scope','
 				}
 			);
 	};
-}]);
+}
 
-angular.module("learn_and_explore").controller('ResetPasswordCtrl', ['$scope', '$rootScope', 'dataSavingHttp', '$stateParams', '$timeout','$state', function ($scope, $rootScope, dataSavingHttp, $stateParams,$timeout,$state) {
+angular.module("learn_and_explore").controller('ResetPasswordCtrl',ResetPasswordCtrl );
+
+ResetPasswordCtrl.$inject = ['$scope', '$rootScope', 'dataSavingHttp', '$stateParams', '$timeout','$state'];
+
+ function ResetPasswordCtrl($scope, $rootScope, dataSavingHttp, $stateParams,$timeout,$state) {
 	
 	$scope.ResetPasswordFormObj					= {};
 	$scope.ResetPasswordFormObj.reset_code		= '';
@@ -123,7 +131,7 @@ angular.module("learn_and_explore").controller('ResetPasswordCtrl', ['$scope', '
 			}
 		});
 	};
-}]);
+}
 
 
 
