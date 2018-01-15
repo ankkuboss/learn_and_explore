@@ -30,11 +30,6 @@ class  MYREST_Controller  extends  MY_Controller  {
     	$this->load->model("auth/Auth_model");
     	$session_data=  $this->Auth_model->get_single_row("user_id",ACTIVE_LOGIN,array("session_key" => $session_key));
 
-
-        echo "<pre>";
-        print_r($session_data);
-        die;
-        
     	if(!isset($session_data['user_id']))
     	{
     		$this->api_response["response_code"]= self::HTTP_UNAUTHORIZED;
