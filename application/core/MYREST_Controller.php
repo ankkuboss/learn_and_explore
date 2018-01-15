@@ -31,6 +31,9 @@ class  MYREST_Controller  extends  MY_Controller  {
     	$session_data=  $this->Auth_model->get_single_row("user_id",ACTIVE_LOGIN,array("session_key" => $session_key));
 
 
+        echo "<pre>";
+        print_r($session_data);
+        die;
         
     	if(!isset($session_data['user_id']))
     	{
