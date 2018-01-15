@@ -22,19 +22,7 @@ function userCtrl($scope, commonService, $state,$stateParams, $rootScope,$uibMod
 	 		vm.user_list = response.data.users;
 				},function (error)
 				{
-					if(error.ResponseCode==501)
-					{
-						
-						//$rootScope.alert_error = error.Error.lineup;
-					}
-					else
-					{
-						
-						//$rootScope.alert_error = error.GlobalError;
-						/*angular.forEach(error.Error, function(value, key) {
-					  		angular.element('#login_'+key+'_error').text(value).show();
-						});*/
-					}
+					console.log("error:",error);
 				}
 			);
 
@@ -60,6 +48,7 @@ function userCtrl($scope, commonService, $state,$stateParams, $rootScope,$uibMod
 	 	commonService.commonApiCall(vm.cashbackObj,'user/add_cashback').then(function(response){
 				
 	 		vm.msg = response.data.message;
+	 		vm.get_user_cashback_history();
 				},function (error)
 				{
 					console.log("error:",error);

@@ -50,7 +50,7 @@ class  Banner extends  MYREST_Controller  {
 
         $this->api_response["response_code"] = 200;
         $this->api_response["data"]['banner_id'] = $this->db->insert_id();
-        $this->api_response["message"] = "Banner added.";
+        $this->api_response["message"] = $this->lang->line("banner_add_success");
         $this->response($this->api_response,$this->api_response["response_code"]);
 
 

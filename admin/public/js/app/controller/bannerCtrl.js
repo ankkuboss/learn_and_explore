@@ -65,7 +65,7 @@ function bannerCtrl($scope, commonService, $state, $rootScope,fileUpload) {
    {
 		commonService.commonApiCall(vm.bannerObj,'banner/add_banner').then(function(response){
 			
- 		console.log("add banner reponse:",response);
+ 		console.log("add banner reponse:",response.message);
  		$rootScope.addAlert('success',response.message);
  		angular.element("#add_banner_modal").modal("hide");
  		vm.bannerObj = {};
