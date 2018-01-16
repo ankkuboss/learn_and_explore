@@ -55,6 +55,7 @@
                             <th class="column-title">Image </th>
                             <th class="column-title">link </th>
                             <th class="column-title">Status </th>
+                            <th class="column-title">Action </th>
                             <th class="bulk-actions" colspan="7">
                               <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
                             </th>
@@ -69,13 +70,16 @@
                               <input type="checkbox" class="flat" name="table_records">
                             </td>
                             <td class=" ">{{$index+1}}</td>
-                            <td class=" " ng_bind="item.name"> </td>
-                            <td class=" "><img src="item.image"/></td>
+                            <td class=" " ng-bind="item.name"> </td>
+                            <td class=" "><img ng-src="{{item.banner_path}}{{item.image}}" style="width:200px;height:200px"/></td>
                             <td class=" " data-ng-bind="item.link"></td>
                             <td class=" ">
                                <i ng-if="item.status== 1" class="fa fa-toggle-on" aria-hidden="true"></i>
                             <i ng-if="item.status== 0" class="fa fa-toggle-off" aria-hidden="true"></i>
                               
+                            </td>
+                            <td>
+                              <button id="{{item.id}}" ng-click="updateBannerbtn(item.id)" data-toggle="modal" data-target="#update_banner_modal" class="btn btn-primary" type="button" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             </td>
                             
                           </tr>                         
@@ -83,7 +87,7 @@
                       </table>
                     </div>
 
-                            <!-- Modal -->
+                            <!-- Add Modal -->
   <div class="modal fade" id="add_banner_modal" role="dialog">
     <div class="modal-dialog">
     
@@ -148,7 +152,77 @@
       
     </div>
   </div>
-            <!--model end-->
+            <!--Add Modal end-->
+            <!--Update Modal-->
+  <div class="modal fade" id="update_banner_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Banner</h4>
+        </div>
+        <div class="modal-body">
+              <form id="update_banner_form" data-ng-submit="update_banner();" data-parsley-validate class="form-horizontal form-label-left">
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" data-ng-model="bannerObj.name" id="name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="banner_file">Upload <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <!-- <input type="file" file-model="myFile"  class="form-control col-md-7 col-xs-12"/> -->
+                        <input type = "file" file-model = "myFile"/>
+                        <button class="form-control" ng-click="uploadBannerFile()">upload</button>
+                        <img width="100" height="100" ng-if="bannerObj.image" ng-src="{{BASE_URL}}upload/banners/{{bannerObj.image}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="link">Link <span class="required">*</span>
+                        </label>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" id="link" data-ng-model="bannerObj.link" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="status">Status <span class="required">*</span>
+                        </label>
+                    
+                        
+
+                      <div class="col-md-6 col-sm-6 col-xs-12">
+                          
+                        <input type="radio" ng-model="bannerObj.status" class="flat" name="gender" id="statusE" value="1" checked="" ng-checked="bannerObj.status == 'truessss  '" required /> <label for="statusE">Enable</label> 
+                        <input type="radio" ng-model="bannerObj.status" class="flat" name="gender" id="statusD" ng-checked="bannerObj.status == 'false'" value="0" /> <label for="statusD">Disable</label>
+                        </div>
+
+
+                    
+                </div>
+                 <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success btn-update" ng-click="updateBannerData(bannerObj.id)">Update</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+              </form>
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>  
+
+
+
+            <!--Update Modal-->
+            
                   </div>
 
 <div class="row">

@@ -17,6 +17,9 @@ class  Banner extends  MYREST_Controller  {
     {
         $result                                = $this->Banner_model->get_banners();
         $this->api_response["response_code"]   = 200;
+        foreach ($result as $key => $value) {
+            $result[$key]['banner_path']  = BASE_APP_URL.BANNER_IMAGE_PATH."/";
+        }
         $this->api_response["data"]['banners'] = $result;
         $this->api_response["message"]         = "";
         $this->response($this->api_response,$this->api_response["response_code"]);
@@ -55,10 +58,43 @@ class  Banner extends  MYREST_Controller  {
 
 
     }
+    public function update_banner_post()
+    {
+
+        $post_data = $this->input->post();
+        $where =[];
+        $where['id'] = $post_data['banner_id'];
+        $result                                = $this->Banner_model->get_single_row( '*','BANNER',$where);
+        $this->api_response["response_code"]   = 200;
+        $this->api_response["data"]['banners'] = $result;
+        $this->api_response["message"]         = "";
+        $this->response($this->api_response,$this->api_response["response_code"]);
+        $current_date = format_date();
+        $prepare_data = array(
+            "name"        => $result["name"],
+            "link"        => $result["link"],
+            "image"       => $result["image"],
+            "status"      => $result["status"],
+            );
+    }
+    public function update_banner_data_post()
+    {
+        $post_data = $this->input->post();
+        $current_date = format_date();
+        $where['id']= $post_data['id'];
+        $prepare_data = array(
+            "name"        => $post_data["name"],
+            "link"        => $post_data["link"],
+            "image"       => $post_data["image"],
+            "status"      => $post_data["status"],
+            );
+        $this->api_response["message"] = "Banner Updated successfully";
+        $this->db->where('id', $where['id']);
+        $this->db->update(BANNER,$prepare_data);
+    }
 
     public function upload_banner_image_post()
     {
-
         $config['upload_path']   = BANNER_UPLOAD_PATH; 
          $config['allowed_types'] = 'gif|jpg|png'; 
          $config['max_size']      = 1000; 
@@ -76,6 +112,7 @@ class  Banner extends  MYREST_Controller  {
                 $this->api_response["error"] = $this->upload->display_errors();
                 $this->api_response["message"]      = "";
                 $this->response($this->api_response,$this->api_response["response_code"]);
+                echo $this->api_response["error"];
          }
             
          else { 

@@ -1,16 +1,16 @@
 <!--crouserl-->
  <carousel class="m-b-15" interval="myInterval" ng-init="get_banner_list()">
-        <slide ng-repeat="slide in banner_list" active="slide.active">
-        <div>
-            
-          <img ng-click="commonService.redirect_from_banner(slide.link)" class="banner-image" ng-src="{{banner_path}}{{slide.image}}">
+      <slide ng-repeat="slide in banner_list" active="slide.active">
+      <div>
           
+        <img ng-click="commonService.redirect_from_banner(slide.link)" class="banner-image" ng-src="{{banner_path}}{{slide.image}}">
+        
+      </div>
+        <div class="carousel-caption">
+          <h4> {{slide.coupon_title}}</h4>
         </div>
-          <div class="carousel-caption">
-            <h4> {{slide.coupon_title}}</h4>
-          </div>
-        </slide>
-      </carousel>
+      </slide>
+    </carousel>
             
       <!--/crouserl-->   
 <div class="container-fluid bg-3 text-center" data-ng-init="get_store_list();get_random_store_offers()">    

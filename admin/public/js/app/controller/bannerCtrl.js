@@ -63,17 +63,54 @@ function bannerCtrl($scope, commonService, $state, $rootScope,fileUpload) {
 
    function add_banner()
    {
-		commonService.commonApiCall(vm.bannerObj,'banner/add_banner').then(function(response){
-			
- 		console.log("add banner reponse:",response);
- 		$rootScope.addAlert('success',response.message);
- 		angular.element("#add_banner_modal").modal("hide");
- 		vm.bannerObj = {};
-			},function (error)
-			{
-				$rootScope.addAlert('',error.global_error);
-			}
+		commonService.commonApiCall(vm.bannerObj,'banner/add_banner').then
+		(function(response)
+		{
+			console.log("add banner reponse:",response);
+	 		$rootScope.addAlert('success',response.message);
+	 		angular.element("#add_banner_modal").modal("hide");
+	 		vm.bannerObj = {};
+		},function (error)
+		{
+			$rootScope.addAlert('',error.global_error);
+		}
 		);   		
    }
+   function updateBannerbtn(banner_id)
+   {
+		vm.bannerObj= {}; 
+		vm.bannerObj.banner_id = banner_id;  	
+   		commonService.commonApiCall(vm.bannerObj,'banner/update_banner').then(function(response)
+   		{
 
+   			console.log('update banner response:',response);
+   			$rootScope.addAlert('success',response.message);
+   			//angular.element("#update_banner_modal").modal("hide");
+   			vm.bannerObj = {};
+   			vm.bannerObj = response.data.banners;
+		},function(error)
+		{
+			$rootScope.addAlert('',error.global_error);
+		}
+
+   		);
+   	}
+
+   	vm.updateBannerbtn=updateBannerbtn;
+   	function updateBannerData(banner_id){
+   		vm.bannerObj.banner_id = banner_id;  	
+   		commonService.commonApiCall(vm.bannerObj,'banner/update_banner_data').then(function(response)
+   		{
+
+   			console.log('Banner Updated:',response);
+   			$rootScope.addAlert('success',response.message);
+   			bannerList();
+   			angular.element("#update_banner_modal").modal("hide");
+   		},function(error)
+		{
+			$rootScope.addAlert('',error.global_error);
+		}
+   		);
+   	}
+   	vm.updateBannerData=updateBannerData;
 }

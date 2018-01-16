@@ -1,6 +1,7 @@
 <?php
 
-class  Store_offer extends  MYREST_Controller  {
+class  Store_offer extends  MYREST_Controller  
+{
 
     function __construct ()  {
         parent::__construct();
@@ -34,7 +35,7 @@ class  Store_offer extends  MYREST_Controller  {
 
     public function get_banner_list_post()
     {
-        $result["banners"]                             = $this->Store_offer_model->get_banner_list();
+        $result["banners"]  = $this->Store_offer_model->get_banner_list();
 
         $user_data = $this->Store_offer_model->get_single_row("user_id",ACTIVE_LOGIN,array("session_key" => session_id()));
        
@@ -48,7 +49,7 @@ class  Store_offer extends  MYREST_Controller  {
         }
 
         $result['banners'] = array_map(array($this,"add_user_id_to_link") ,$result["banners"]);
-        $result["banner_path"]                         = base_url()."/".BANNER_IMAGE_PATH."/";
+        $result["banner_path"] = base_url()."/".BANNER_IMAGE_PATH."/";
         $this->api_response["response_code"]= self::HTTP_OK;
 
         $this->api_response["data"]         = $result;
@@ -57,10 +58,10 @@ class  Store_offer extends  MYREST_Controller  {
   
     }
 
-     public function store_details_post()
+    public function store_details_post()
     {
-        $post_data                          = $this->input->post();
-        $result                             = $this->Store_offer_model->store_details($post_data);
+        $post_data     = $this->input->post();
+        $result        = $this->Store_offer_model->store_details($post_data);
         $this->api_response["response_code"]= self::HTTP_OK;
         $result = array_map(array($this,"add_user_id_to_link") ,$result);
 
