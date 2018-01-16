@@ -85,8 +85,7 @@
                             <th class="column-title">Retailer name </th>
                             <th class="column-title">Purchase Date </th>
                             <th class="column-title">Status </th>
-                            <th class="column-title no-link last"><span class="nobr">Action</span>
-                            </th>
+                            
                             <th class="bulk-actions" colspan="7">
                               <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
                             </th>
@@ -110,8 +109,7 @@
                             <i ng-if="cashback.status== 1" class="fa fa-toggle-on" aria-hidden="true"></i>
                             <i ng-if="cashback.status== 0" class="fa fa-toggle-off" aria-hidden="true"></i>
                             </td>
-                            <td class=" last"><a ui-sref="user_details({user_id:user.user_id})">View</a>
-                            </td>
+                            
                           </tr>                         
                         </tbody>
                       </table>
@@ -122,7 +120,7 @@
       <!-- Modal content-->
       
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" ng-click="cancel();" >&times;</button>
           <h4 class="modal-title">Add Cashback</h4>
         </div>
         <div class="modal-body">

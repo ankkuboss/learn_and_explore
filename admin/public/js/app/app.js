@@ -471,8 +471,7 @@ app.run(['$rootScope', '$location', '$state','$timeout','commonService', functio
 	   return Number(date);
 	}
 
-	 $rootScope.alerts = [
-   ];
+	 $rootScope.alerts = [];
 
   $rootScope.addAlert = function(type,msg) {
 
@@ -484,7 +483,7 @@ app.run(['$rootScope', '$location', '$state','$timeout','commonService', functio
     $timeout(
     	function(){
     		$rootScope.closeAlert($rootScope.alerts.length-1);
-    	},2000);
+    	},4000);
   };
 
   $rootScope.closeAlert = function(index) {

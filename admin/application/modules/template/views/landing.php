@@ -34,6 +34,13 @@
   .table-responsive{
     font-size: 11px !important;
   }
+
+  .alert{
+        width: 20%;
+        position: absolute;
+        right: 0px;
+        top: 15px;
+  }
 </style>
 </head>
 <body class="nav-md" ng-controller="CommonCtrl" ng-cloak>
@@ -121,7 +128,7 @@
 
         <div ng-repeat="alert in alerts"
         
-         class="alert alert-{{alert.type}} alert-dismissable"
+         class="alert alert-{{alert.type}} alert-dismissable "
          >
           <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
            {{alert.msg}}

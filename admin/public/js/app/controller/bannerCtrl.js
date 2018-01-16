@@ -74,6 +74,7 @@ function bannerCtrl($scope, commonService, $state, $rootScope,fileUpload) {
 		{
 			$rootScope.addAlert('',error.global_error);
 		}
+
 		);   		
    }
    function updateBannerbtn(banner_id)
